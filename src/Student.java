@@ -59,10 +59,9 @@ public class Student {
 	 */
 	public void enroll(ArrayList<Course> courses) {
 		String courseInput;
-		boolean shouldExit = false;
 		Scanner scanner = new Scanner(System.in);
 
-		while (!shouldExit) {
+		while (true) {
 			System.out.println("Enter course to enroll (\"quit\" to quit):");
 
 			for (int i = 0; i < courses.size(); i++) {
