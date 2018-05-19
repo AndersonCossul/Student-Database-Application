@@ -7,6 +7,18 @@ public class Course {
 	private String name;
 	private double price;
 	
+	/**
+	 * @param name (String. The price by default is 600)
+	 */
+	public Course(String name) {
+		this.name = name;
+		this.price = 600;
+	}
+	
+	/**
+	 * @param name (String)
+	 * @param price (double)
+	 */
 	public Course(String name, double price) {
 		this.name = name;
 		this.price = price;
