@@ -22,7 +22,8 @@ public class Main {
 		}
 		
 		for (int i = 0; i < num; i++) {
-			Student student = new Student();	
+			Student student = new Student();
+			student.enroll(courses);
 //			System.out.println("\n\nYour tuitionBalance is $: " + student.getTuitionBalance());
 //			System.out.println("Paying 2000 for tution...");
 //			double tuitionChange =  student.payTuition(2000);
