@@ -1,20 +1,35 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Student student = new Student();
 		ArrayList<Course> courses = getCourses();
+		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println("\n");
-		student.enroll(courses);
+		System.out.print("How many students do you want to register? ");
+		int num = -1;
+		while (num < 0) {
+			try {
+				num = scanner.nextInt();
+				if (num < 0) {
+					System.out.println("Please insert a number greater or equal to zero.");
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Please insert a number.");
+				scanner.nextLine();
+			}
+		}
 		
-		System.out.println("\n\nYour tuitionBalance is $: " + student.getTuitionBalance());
-		System.out.println("Paying 2000 for tution...");
-		double tuitionChange =  student.payTuition(2000);
-		System.out.println("Tuition change: $" + tuitionChange);
-		System.out.println("New Tution balance: " + student.getTuitionBalance());
-		
-		System.out.println("\n\n" + student.showStatus());
+		for (int i = 0; i < num; i++) {
+			Student student = new Student();	
+//			System.out.println("\n\nYour tuitionBalance is $: " + student.getTuitionBalance());
+//			System.out.println("Paying 2000 for tution...");
+//			double tuitionChange =  student.payTuition(2000);
+//			System.out.println("Tuition change: $" + tuitionChange);
+//			System.out.println("New Tution balance: " + student.getTuitionBalance());
+			System.out.println("\n\n" + student.showStatus());
+		}
 	}
 	
 	private static ArrayList<Course> getCourses() {
