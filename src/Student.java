@@ -61,7 +61,7 @@ public class Student {
 		String courseInput;
 		boolean shouldExit = false;
 		Scanner scanner = new Scanner(System.in);
-		
+
 		while (!shouldExit) {
 			System.out.println("Enter course to enroll (\"quit\" to quit):");
 
@@ -75,7 +75,7 @@ public class Student {
 			if (courseInput.contains("quit")) {
 				break;
 			}
-			
+
 			if (isAlreadyOnCourse(courseInput)) {
 				System.out.println("Student already enrolled in " + courseInput);
 			} else {
@@ -100,9 +100,32 @@ public class Student {
 		return false;
 	}
 
-	// view balance
+	/**
+	 * @return tuitionBalance (double, informing how much his fee will be)
+	 */
+	public String getTuitionBalance() {
+		return Double.toString(tuitionBalance);
+	}
 
-	// pay the tuition
+	/**
+	 * @param payment
+	 *            (double informing the value that was paid)
+	 * @return the change for the given value if it was greater than the
+	 *         tuitionBalance.
+	 */
+	public double payTuition(double payment) {
+		tuitionBalance -= payment;
+		if (tuitionBalance < 0) {
+			// if the payment was higher than the tuitionBalance, tuitionBalance now will be a negative number,
+			// so we'll return the positive number of it.
+			double absTuitionBalance = Math.abs(tuitionBalance);
+			tuitionBalance = 0;
+			return absTuitionBalance;
+		} else {
+			System.out.println("Thank you for your payment. You still have " + tuitionBalance + " to pay.");
+			return 0;
+		}
+	}
 
 	/**
 	 * @return a string with the student info.

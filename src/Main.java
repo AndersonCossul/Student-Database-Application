@@ -8,6 +8,12 @@ public class Main {
 		System.out.println("\n");
 		student.enroll(courses);
 		
+		System.out.println("\n\nYour tuitionBalance is $: " + student.getTuitionBalance());
+		System.out.println("Paying 2000 for tution...");
+		double tuitionChange =  student.payTuition(2000);
+		System.out.println("Tuition change: $" + tuitionChange);
+		System.out.println("New Tution balance: " + student.getTuitionBalance());
+		
 		System.out.println("\n\n" + student.showStatus());
 	}
 	
